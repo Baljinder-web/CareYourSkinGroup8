@@ -1,0 +1,14 @@
+﻿body {
+}
+/*.carousel {
+    max-width: 80%;*/ /* Adjust width */
+    /*margin: 0 auto;*/ /* Center it */
+/*}*/
+
+footer {
+    background-color: lightslategrey;
+    padding: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color: white;
+}

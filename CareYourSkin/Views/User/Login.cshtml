@@ -1,0 +1,42 @@
+﻿@model User;
+
+@if (TempData["SessionExpired"] != null)
+{
+    <div class="alert alert-warning text-center">
+        @TempData["SessionExpired"]
+    </div>
+}
+
+@*Baljinder Singh, 8913973*@
+
+@{
+    ViewData["Title"] = "Log In";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded" style="width: 400px;">
+        <h2 class="text-center mb-3">Login</h2>
+
+        
+
+        <form asp-controller="User" asp-action="Login" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" required />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+
+       
+    </div>
+</div>

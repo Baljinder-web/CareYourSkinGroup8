@@ -1,0 +1,30 @@
+﻿@model List<CareYourSkin.Models.Expert>
+
+<h2>Experts List</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Specialty</th>
+            <th>Clinic Address</th>
+            <th>Contact Info</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expert in Model)
+        {
+            <tr>
+                <td>@expert.Name</td>
+                <td>@expert.Specialty</td>
+                <td>@expert.ClinicAddress</td>
+                <td>@expert.ContactInfo</td>
+                <td>
+                    <a href="@Url.Action("BookAppointment", "Appointment", new { expertId = expert.Id })">
+                        <button>Book Appointment</button>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

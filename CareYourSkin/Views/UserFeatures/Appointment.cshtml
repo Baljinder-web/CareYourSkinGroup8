@@ -1,0 +1,17 @@
+﻿@model CareYourSkin.Models.Appointment
+
+<h2>Book Appointment</h2>
+<form asp-action="BookAppointment">
+    <input type="hidden" asp-for="ExpertId" value="@ViewBag.ExpertId" />
+    <div>
+        <label asp-for="AppointmentDate"></label>
+        <input asp-for="AppointmentDate" type="datetime-local" />
+        <span asp-validation-for="AppointmentDate"></span>
+    </div>
+    <div>
+        <label asp-for="Notes"></label>
+        <textarea asp-for="Notes"></textarea>
+        <span asp-validation-for="Notes"></span>
+    </div>
+    <button type="submit">Confirm Booking</button>
+</form>

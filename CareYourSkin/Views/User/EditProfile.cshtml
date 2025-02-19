@@ -1,0 +1,70 @@
+﻿@model CareYourSkin.Models.User
+
+<h2 class="text-center">Edit Profile</h2>
+
+<form class="form-control" asp-action="EditProfile" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label class="col-form-label-lg"><b>Username:</b></label>
+        <input class="input-group" asp-for="Username" class="form-control" />
+    </div>
+    <br />
+
+    <div>
+        <label class="col-form-label-lg"><b>Name:</b></label>
+        <input class="input-group" asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div>
+        <label class="col-form-label-lg"><b>Password:</b></label>
+        <input class="input-group" asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div>
+        <label class="col-form-label-lg"><b>Confirm Password:</b></label>
+        <input class="input-group" asp-for="ConfirmPassword" type="password" class="form-control" />
+        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div>
+        <label class="col-form-label-lg"><b>Age:</b></label>
+        <input class="input-group" asp-for="Age" type="number" class="form-control" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div>
+        <label class="col-form-label-lg"><b>Date of Birth:</b></label>
+        <input class="input-group" asp-for="DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <br />
+    <div>
+        <label class="col-form-label-lg">Current Profile Photo:</label>
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Url.Content("~/"+ Model.ImagePath)" class="card-img-top" alt="Profile Image" style="width: 50%; height: auto; object-fit: contain;" />
+        }
+        else
+        {
+            <p>No photo uploaded.</p>
+        }
+    </div>
+    <div>
+        <label class="col-form-label-lg">Upload New Photo:</label>
+        <input class="input-group" type="file" name="imageFile" class="form-control" />
+    </div>
+
+    <a asp-action="Profile" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-success">Update Profile</button>
+
+
+    
+</form>
+

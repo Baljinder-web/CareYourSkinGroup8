@@ -1,0 +1,46 @@
+﻿@model CareYourSkin.Models.User
+
+@{
+    ViewData["Title"] = "Profile Page";
+}
+
+<h2 class="text-center">@Model.Name's Profile</h2>
+
+<div class="row justify-content-center">
+    <!-- Profile Image Section -->
+    <div class="col-md-4 mb-4 text-center">
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="~/@Model.ImagePath" class="rounded" alt="Profile Image" style="max-width: 200px; height: auto; object-fit: cover;" />
+        }
+        else
+        {
+            <p>No Photo uploaded.</p>
+        }
+    </div>
+
+    <!-- Profile Information -->
+    <div class="col-md-8">
+        <div class="card shadow-lg p-4">
+            <div class="card-body">
+                <h5 class="card-title">Name: @Model.Name</h5>
+                <p class="card-text"><strong>Username:</strong> @Model.Username</p>
+                <p class="card-text"><strong>Age:</strong> @Model.Age</p>
+                <p class="card-text"><strong>Date of Birth:</strong> @Model.DateOfBirth.ToShortDateString()</p>
+            </div>
+
+            <div class="card-footer d-flex justify-content-between">
+                <a asp-action="EditProfile" class="btn btn-primary">Edit Profile</a>
+                <a asp-action="Logout" class="btn btn-danger">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Message -->
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success text-center mt-3" role="alert">
+        @TempData["SuccessMessage"]
+    </div>
+}
